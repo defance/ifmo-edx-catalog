@@ -1,5 +1,6 @@
 from django.db import models
 
+
 class LabelForCourses(models.Model):
     name_of_label = models.CharField(max_length=200)
     description = models.TextField(blank=True, max_length=3000)

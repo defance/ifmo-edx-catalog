@@ -41,6 +41,12 @@ ${_("New Course")}</a>
 <a href="mailto:${settings.FEATURES.get('STUDIO_REQUEST_EMAIL','')}">${_("Email staff to create course")}</a>
 % endif
 </li>
+<li class="nav-item">
+% if user.is_superuser:
+    <a href="edit_catalog" class="button new-button edit-catalog-button"><i class="icon-edit icon-inline"></i>
+${_("Edit Catalog")}</a>
+% endif
+</li>
 </ul>
 </nav>
 % endif

@@ -1,0 +1,29 @@
+[
+  {
+    "model": "ifmo_catalog.LabelForCourses",
+    "pk": 1,
+    "fields": {
+      "name_of_label": "Current",
+      "description": "Текущие курсы",
+      "protected": "True"
+    }
+  },
+  {
+    "model": "ifmo_catalog.LabelForCourses",
+    "pk": 2,
+    "fields": {
+      "name_of_label": "Soon",
+      "description": "Курсы, которые появятся в скором времени",
+      "protected": "True"
+    }
+  },
+  {
+    "model": "ifmo_catalog.LabelForCourses",
+    "pk": 3,
+    "fields": {
+      "name_of_label": "Archived",
+      "description": "Прошедшие курсы",
+      "protected": "True"
+    }
+  }
+]

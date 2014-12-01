@@ -1,1 +1,159 @@
-Здесь будет редактирование каталога
+<%inherit file="main.html" />
+
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="static/css/bootstrap.css" rel="stylesheet">
+    <link href="static/css/bootstrap-theme.css" rel="stylesheet"> 
+
+    <script type="text/javascript" src="static/js/bootstrap.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function(){
+	$("#myModal").on('show.bs.modal', function(event){
+        var button = $(event.relatedTarget);  
+        var titleData = button.data('title'); 
+        $(this).find('.modal-title').text(titleData + ' Form');
+    });
+});
+</script>   
+
+    <script type="text/javascript">
+    $(document).ready(function(){
+    $("#1").keypress(function(e){
+    if(e.keyCode==13){
+	var ahref=document.getElementById('1');
+    ahref.readOnly=true;     	   
+	     	   }
+	     	 });
+	     });
+</script >
+      <script type="text/javascript">    
+      function EditClick(){
+    var ahref=document.getElementById('1');
+    ahref.removeAttribute('readonly');
+    ahref.setAttribute('value', '');     
+          }
+          function showHide(ev) {
+     ev=ev||window.event
+     var elem=(ev.target||ev.srcElement).getElementsByTagName("UL")[0]
+     if(!elem)return;
+     elem=elem.style;
+     elem.display=(elem.display!='block')?'block':'none'
+   }
+      </script>
+<script type="text/javascript">
+    function DeleteClick(){
+   alert("Удаляем каталог");}
+</script>
+      
+<script type="text/javascript">
+    function AddCourseClick(){
+   alert("Добавляем курс");}
+</script>
+      
+  </head>
+  <body>
+      <ul onclick="showHide(event)" id="menuTop">
+    <li class="m" > <input id="1" type="text" name="txtName" size="30" maxlength="30" value="Предметная область" readonly><button type="button" class="btn btn-default btn-xs" onClick="EditClick()"><i class="glyphicon glyphicon-pencil"></i></button>
+            <button type="button" class="btn btn-default btn-xs" onClick="DeleteClick();"><i class="glyphicon glyphicon-remove-sign"></i></button>
+            <button type="button" class="btn btn-default btn-xs" onClick="AddCourseClick();"><i class="glyphicon glyphicon-ok-sign"></i></button>
+            <button type="button" class="btn btn-default btn-xs"data-toggle="modal" data-target="#myModal1" data-title="AddInCatalog1"><i class="glyphicon glyphicon-plus"></i></button>
+      <ul id="cat1">
+      <li><input id="1" type="text" name="txtName" size="30" maxlength="30" value="Математика" readonly><button type="button" class="btn btn-default btn-xs" onClick="EditClick()"><i class="glyphicon glyphicon-pencil"></i></button>
+            <button type="button" class="btn btn-default btn-xs"><i class="glyphicon glyphicon-remove-sign"></i></button>
+            <button type="button" class="btn btn-default btn-xs"><i class="glyphicon glyphicon-ok-sign"></i></button>
+            <button type="button" class="btn btn-default btn-xs"data-toggle="modal" data-target="#myModal" data-title="AddInCatalog2"><i class="glyphicon glyphicon-plus"></i></button></li>
+      <li class="m"><input id="1" type="text" name="txtName" size="30" maxlength="30" value="Программирование" readonly><button type="button" class="btn btn-default btn-xs" onClick="EditClick()"><i class="glyphicon glyphicon-pencil"></i></button>
+            <button type="button" class="btn btn-default btn-xs"><i class="glyphicon glyphicon-remove-sign"></i></button>
+            <button type="button" class="btn btn-default btn-xs"><i class="glyphicon glyphicon-ok-sign"></i></button>
+            <button type="button" class="btn btn-default btn-xs"data-toggle="modal" data-target="#myModal" data-title="AddInCatalog2"><i class="glyphicon glyphicon-plus"></i></button>
+        <ul>
+          <li><input id="1" type="text" name="txtName" size="30" maxlength="30" value="Javascript" readonly><button type="button" class="btn btn-default btn-xs" onClick="EditClick()"><i class="glyphicon glyphicon-pencil"></i></button>
+            <button type="button" class="btn btn-default btn-xs"><i class="glyphicon glyphicon-remove-sign"></i></button>
+            <button type="button" class="btn btn-default btn-xs"><i class="glyphicon glyphicon-ok-sign"></i></button>
+            <button type="button" class="btn btn-default btn-xs"data-toggle="modal" data-target="#myModal" data-title="AddInCatalog2"><i class="glyphicon glyphicon-plus"></i></button></li>
+          <li><input id="1" type="text" name="txtName" size="30" maxlength="30" value="HTML" readonly><button type="button" class="btn btn-default btn-xs" onClick="EditClick()"><i class="glyphicon glyphicon-pencil"></i></button>
+            <button type="button" class="btn btn-default btn-xs"><i class="glyphicon glyphicon-remove-sign"></i></button>
+            <button type="button" class="btn btn-default btn-xs"><i class="glyphicon glyphicon-ok-sign"></i></button>
+            <button type="button" class="btn btn-default btn-xs"data-toggle="modal" data-target="#myModal" data-title="AddInCatalog2"><i class="glyphicon glyphicon-plus"></i></button></li>
+        </ul></li>
+      </ul>
+    </li>
+    <li class="m"><input id="1" type="text" name="txtName" size="30" maxlength="30" value="Уровень сложности" readonly><button type="button" class="btn btn-default btn-xs" onClick="EditClick()"><i class="glyphicon glyphicon-pencil"></i></button>
+            <button type="button" class="btn btn-default btn-xs"><i class="glyphicon glyphicon-remove-sign"></i></button>
+            <button type="button" class="btn btn-default btn-xs"><i class="glyphicon glyphicon-ok-sign"></i></button>
+            <button type="button" class="btn btn-default btn-xs"data-toggle="modal" data-target="#myModal" data-title="AddInCatalog2"><i class="glyphicon glyphicon-plus"></i></button>
+      <ul>
+        <li><input id="1" type="text" name="txtName" size="30" maxlength="30" value="Начальный" readonly><button type="button" class="btn btn-default btn-xs" onClick="EditClick()"><i class="glyphicon glyphicon-pencil"></i></button>
+            <button type="button" class="btn btn-default btn-xs"><i class="glyphicon glyphicon-remove-sign"></i></button>
+            <button type="button" class="btn btn-default btn-xs"><i class="glyphicon glyphicon-ok-sign"></i></button>
+            <button type="button" class="btn btn-default btn-xs"data-toggle="modal" data-target="#myModal" data-title="AddInCatalog2"><i class="glyphicon glyphicon-plus"></i></button></li>
+        <li><input id="1" type="text" name="txtName" size="30" maxlength="30" value="Средний" readonly><button type="button" class="btn btn-default btn-xs" onClick="EditClick()"><i class="glyphicon glyphicon-pencil"></i></button>
+            <button type="button" class="btn btn-default btn-xs"><i class="glyphicon glyphicon-remove-sign"></i></button>
+            <button type="button" class="btn btn-default btn-xs"><i class="glyphicon glyphicon-ok-sign"></i></button>
+            <button type="button" class="btn btn-default btn-xs"data-toggle="modal" data-target="#myModal" data-title="AddInCatalog2"><i class="glyphicon glyphicon-plus"></i></button></li>
+        <li><input id="1" type="text" name="txtName" size="30" maxlength="30" value="Продвинутый" readonly><button type="button" class="btn btn-default btn-xs" onClick="EditClick()"><i class="glyphicon glyphicon-pencil"></i></button>
+            <button type="button" class="btn btn-default btn-xs"><i class="glyphicon glyphicon-remove-sign"></i></button>
+            <button type="button" class="btn btn-default btn-xs"><i class="glyphicon glyphicon-ok-sign"></i></button>
+            <button type="button" class="btn btn-default btn-xs"data-toggle="modal" data-target="#myModal" data-title="AddInCatalog2"><i class="glyphicon glyphicon-plus"></i></button></li>
+      </ul>
+    </li>
+    <li class="m"><input id="1" type="text" name="txtName" size="30" maxlength="30" value="Текущее состояние" readonly><button type="button" class="btn btn-default btn-xs" onClick="EditClick()"><i class="glyphicon glyphicon-pencil"></i></button>
+            <button type="button" class="btn btn-default btn-xs"><i class="glyphicon glyphicon-remove-sign"></i></button>
+            <button type="button" class="btn btn-default btn-xs"><i class="glyphicon glyphicon-ok-sign"></i></button>
+            <button type="button" class="btn btn-default btn-xs"data-toggle="modal" data-target="#myModal" data-title="AddInCatalog2"><i class="glyphicon glyphicon-plus"></i></button>
+      <ul>
+        <li><input id="1" type="text" name="txtName" size="30" maxlength="30" value="Доступны сейчас" readonly><button type="button" class="btn btn-default btn-xs" onClick="EditClick()"><i class="glyphicon glyphicon-pencil"></i></button>
+            <button type="button" class="btn btn-default btn-xs"><i class="glyphicon glyphicon-remove-sign"></i></button>
+            <button type="button" class="btn btn-default btn-xs"><i class="glyphicon glyphicon-ok-sign"></i></button>
+            <button type="button" class="btn btn-default btn-xs"data-toggle="modal" data-target="#myModal" data-title="AddInCatalog2"><i class="glyphicon glyphicon-plus"></i></button></li>
+        <li><input id="1" type="text" name="txtName" size="30" maxlength="30" value="Скоро запустятся" readonly><button type="button" class="btn btn-default btn-xs" onClick="EditClick()"><i class="glyphicon glyphicon-pencil"></i></button>
+            <button type="button" class="btn btn-default btn-xs"><i class="glyphicon glyphicon-remove-sign"></i></button>
+            <button type="button" class="btn btn-default btn-xs"><i class="glyphicon glyphicon-ok-sign"></i></button>
+            <button type="button" class="btn btn-default btn-xs"data-toggle="modal" data-target="#myModal" data-title="AddInCatalog2"><i class="glyphicon glyphicon-plus"></i></button></li>
+        <li><input id="1" type="text" name="txtName" size="30" maxlength="30" value="Завершились" readonly><button type="button" class="btn btn-default btn-xs" onClick="EditClick()"><i class="glyphicon glyphicon-pencil"></i></button>
+            <button type="button" class="btn btn-default btn-xs"><i class="glyphicon glyphicon-remove-sign"></i></button>
+            <button type="button" class="btn btn-default btn-xs"><i class="glyphicon glyphicon-ok-sign"></i></button>
+            <button type="button" class="btn btn-default btn-xs"data-toggle="modal" data-target="#myModal" data-title="AddInCatalog2"><i class="glyphicon glyphicon-plus"></i></button></li>
+      </ul>
+    </li>
+ </ul>
+
+ 
+ <script type="text/javascript">
+    function AddCatalogClick(){         
+    var newItem = document.createElement("LI");
+    var textnode = document.createTextNode("Catalog");    
+    newItem.appendChild(textnode);
+    document.getElementById("cat1").appendChild(newItem);
+        alert(document.forms["InputCatalogName"].NameOfCatalog.value);
+    }
+</script>  
+      
+<button type="button" class="btn btn-default btn-xs"data-toggle="modal" data-target="#myModal" data-title="AddCatalog0"><i class="glyphicon glyphicon-plus"></i></button>
+      
+      
+    <div id="myModal1" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
+                    <h4 class="modal-title">Modal Window</h4>
+                </div>
+                <div class="modal-body">
+                    <form role="form" name="InputCatalogName">
+                            <label for="message-text" class="control-label">Имя каталога: </label>
+                            <input type="text" name="NameOfCatalog" id="NameOfCatalog">
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Отмена</button>
+                    <button type="button" class="btn btn-primary" onClick="AddCatalogClick()">Сохранить</button>
+                </div>
+            </div>
+        </div>
+    </div>
+      </body>
+</html>

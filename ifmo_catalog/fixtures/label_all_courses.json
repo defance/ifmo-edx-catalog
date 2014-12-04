@@ -1,0 +1,14 @@
+[
+  {
+    "model": "ifmo_catalog.LabelForCourses",
+    "pk": 1,
+    "fields": {
+      "name_of_label": "All",
+      "description": "Все курсы",
+      "protected_for_edit": "True",
+      "protected_for_add_child": "False",
+      "protected_for_delete": "True",
+      "protected_for_add_course": "False"
+    }
+  }
+]

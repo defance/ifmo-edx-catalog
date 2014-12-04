@@ -1,0 +1,45 @@
+<html>
+<%inherit file="main.html" />
+<%namespace name='static' file='/static_content.html'/>
+<head>
+    <meta charset="utf-8"> 
+    <link href="${static.url('css/bootstrap.css')}" rel="stylesheet">
+    <link href="${static.url('css/bootstrap-theme.css')}" rel="stylesheet"> 
+    <script type="text/javascript" src="${static.url('js/bootstrap.js')}"></script> 
+    <script type="text/javascript">    
+     function showHide(ev) {
+     ev=ev||window.event
+     var elem=(ev.target||ev.srcElement).getElementsByTagName("UL")[0]
+     if(!elem)return;
+     elem=elem.style;
+     elem.display=(elem.display!='block')?'block':'none'
+     }            
+    </script> 
+</head>
+<body>
+    <ul onclick="showHide(event)">
+    <% label1 = label_list[0] %>
+    <li name="${label1.id}">
+        ${label1.name_of_label}<ul name="${label1.id}"></ul>
+    </li>   
+    % for label in label_list:
+        % for label_into in label_list:
+            % if not label1.id == label_into.id:
+                % if label_into.parent.id == label.id: 
+                    <script>                                                             
+    var newItem = document.createElement("LI");                  
+    newItem.setAttribute("name", "${ label_into.id }");                  
+    var textnode = document.createTextNode("${ label_into.name_of_label }");                       
+    newItem.appendChild(textnode); 
+    document.getElementsByName("${ label_into.parent.id }")[1].appendChild(newItem); 
+    var newItem1 = document.createElement("UL");
+    newItem1.setAttribute("name", "${ label_into.id}");
+    document.getElementsByName("${ label_into.id }")[0].appendChild(newItem1);                         
+                    </script>
+                % endif
+            % endif
+        % endfor
+     % endfor  
+    </ul>
+</body>
+</html>

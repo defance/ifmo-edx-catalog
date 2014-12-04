@@ -1,0 +1,15 @@
+[
+  {
+    "model": "ifmo_catalog.LabelForCourses",
+    "pk": 3,
+    "fields": {
+      "name_of_label": "Subject area",
+      "description": "Категория предметной области",
+      "parent": 1,
+      "protected_for_edit": "False",
+      "protected_for_add_child": "False",
+      "protected_for_delete": "False",
+      "protected_for_add_course": "False"
+    }
+  }
+]

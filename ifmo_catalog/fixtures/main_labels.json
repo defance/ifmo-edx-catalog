@@ -1,29 +1,41 @@
 [
   {
     "model": "ifmo_catalog.LabelForCourses",
-    "pk": 1,
+    "pk": 4,
     "fields": {
       "name_of_label": "Current",
       "description": "Текущие курсы",
-      "protected": "True"
+      "parent": 2,
+      "protected_for_edit": "True",
+      "protected_for_add_child": "True",
+      "protected_for_delete": "True",
+      "protected_for_add_course": "False"
     }
   },
   {
     "model": "ifmo_catalog.LabelForCourses",
-    "pk": 2,
+    "pk": 5,
     "fields": {
       "name_of_label": "Soon",
       "description": "Курсы, которые появятся в скором времени",
-      "protected": "True"
+      "parent": 2,
+      "protected_for_edit": "True",
+      "protected_for_add_child": "True",
+      "protected_for_delete": "True",
+      "protected_for_add_course": "False"
     }
   },
   {
     "model": "ifmo_catalog.LabelForCourses",
-    "pk": 3,
+    "pk": 6,
     "fields": {
       "name_of_label": "Archived",
       "description": "Прошедшие курсы",
-      "protected": "True"
+      "parent": 2,
+      "protected_for_edit": "True",
+      "protected_for_add_child": "True",
+      "protected_for_delete": "True",
+      "protected_for_add_course": "False"
     }
   }
 ]

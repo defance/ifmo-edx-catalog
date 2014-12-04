@@ -1,0 +1,15 @@
+[
+  {
+    "model": "ifmo_catalog.LabelForCourses",
+    "pk": 2,
+    "fields": {
+      "name_of_label": "Availabillity",
+      "description": "Категория доступности",
+      "parent": 1,
+      "protected_for_edit": "True",
+      "protected_for_add_child": "True",
+      "protected_for_delete": "True",
+      "protected_for_add_course": "True"
+    }
+  }
+]

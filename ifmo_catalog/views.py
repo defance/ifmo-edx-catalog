@@ -10,4 +10,9 @@ def edit_catalog(request):
 
 def all_courses(request):
     label_list = LabelForCourses.objects.all()
-    return render_to_response('help2.html', {'label_list': label_list})
+    return render_to_response('all_courses.html', {'label_list': label_list})
+
+
+def delete_label(request, id):
+    u = LabelForCourses.objects.get(pk=id).delete()
+

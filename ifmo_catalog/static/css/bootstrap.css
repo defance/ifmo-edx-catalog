@@ -1,8 +1,4 @@
 
-#menuTop,#menuTop ul{list-style-type:none}
-#menuTop .m{list-style-type:disc}
-#menuTop ul{display:none}
-
 html {
   font-family: sans-serif;
   -webkit-text-size-adjust: 100%;

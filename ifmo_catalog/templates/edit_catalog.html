@@ -30,12 +30,19 @@ document.write("2222");
      elem.display=(elem.display!='block')?'block':'none'
      }
 
+          
         
-    function DeleteClick(){
-    alert("Удаляем каталог");}   
-    function AddCourseClick(){
-    alert("Добавляем курс");}
-  
+        
+    $("button[name='btn_delete']").live("click", function () {
+        var this_id = $(this).attr('id');
+        $.ajax({
+            type:'POST',
+            url: '/edit_catalog_handler/',
+            dataType : "json",
+            data: {command: "delete_label", label_id: this_id},
+
+        });
+    });
    
     function EditClick(idEdit){
     var inputEdit=document.getElementById(idEdit);
@@ -52,21 +59,26 @@ document.write("2222");
         % if (not label1.protected_for_edit):
               <button type="button" class="btn btn-default btn-xs" onClick="EditClick(${ label1.id })"><i class="glyphicon glyphicon-pencil"></i></button> 
         <script>
-                    $(document).ready(function(){
-    $("#${ label1.id }").keypress(function(e){
-    if(e.keyCode==13){
-	var ahref=document.getElementById('${ label1.id }');
-    ahref.readOnly=true;     	   
-	     	   }
-	     	 });
+        $(document).ready(function(){
+            $("#${ label1.id }").keypress(function(e){
+            if(e.keyCode==13){
+	            var ahref=document.getElementById('${ label1.id }');
+                ahref.readOnly=true; 
+                $.ajax({
+                       type:'POST',
+                       url: "/edit_catalog_handler/",
+                       data: {command:}
+               });
+	        }
+	        });
 	     });
         </script>
         % endif
         % if (not label1.protected_for_delete):
-              <button type="button" class="btn btn-default btn-xs" onClick="DeleteClick();"><i class="glyphicon glyphicon-remove-sign"></i></button> 
+              <button type="button" id="${ label1.id }" name="btn_delete" class="btn btn-default btn-xs"><i class="glyphicon glyphicon-remove-sign"></i></button> 
         % endif
         % if (not label1.protected_for_add_course):
-              <button type="button" class="btn btn-default btn-xs" onClick="AddCourseClick();"><i class="glyphicon glyphicon-ok-sign"></i></button> 
+              <button type="button" class="btn btn-default btn-xs"><i class="glyphicon glyphicon-ok-sign"></i></button> 
         % endif
         % if (not label1.protected_for_add_child):
               <button type="button" class="btn btn-default btn-xs" data-toggle="modal" data-target="#myModal" data-title="AddInCatalog"><i class="glyphicon glyphicon-plus"></i></button> 
@@ -103,7 +115,8 @@ document.write("2222");
     $("#${ label_into.id }").keypress(function(e){
     if(e.keyCode==13){
 	var ahref=document.getElementById('${ label_into.id }');
-    ahref.readOnly=true;     	   
+    ahref.readOnly=true; 
+        ///////////////////////////////////////////////////////////////////////////////////
 	     	   }
 	     	 });
 	     });
@@ -113,9 +126,10 @@ document.write("2222");
         <script>
     var newItemButDelete = document.createElement("button"); 
     newItemButDelete.setAttribute("type", "button");
+    newItemButDelete.setAttribute("id", "${ label_into.id }");
+    newItemButDelete.setAttribute("name", "btn_delete");
     newItemButDelete.setAttribute("href", "dashboard/edit_catalog_test/delete_label/${ label_into.id }/"); 
     newItemButDelete.setAttribute("class", "btn btn-default btn-xs");
-    //newItemButDelete.setAttribute("onClick", "DeleteClick();");
     var newItemIconDelete = document.createElement("i");
     newItemIconDelete.setAttribute("class", "glyphicon glyphicon-remove-sign"); 
     newItemButDelete.appendChild(newItemIconDelete);
@@ -128,8 +142,7 @@ document.write("2222");
         <script>
     var newItemButAddCourse = document.createElement("button"); 
     newItemButAddCourse.setAttribute("type", "button");
-    newItemButAddCourse.setAttribute("class", "btn btn-default btn-xs");
-    newItemButAddCourse.setAttribute("onClick", "AddCourseClick();");                    
+    newItemButAddCourse.setAttribute("class", "btn_add_course btn-default btn-xs");                  
     var newItemIconAddCourse = document.createElement("i");   
     newItemIconAddCourse.setAttribute("class", "glyphicon glyphicon-ok-sign");  
     newItemButAddCourse.appendChild(newItemIconAddCourse);

@@ -29,10 +29,7 @@ document.write("2222");
      elem=elem.style;
      elem.display=(elem.display!='block')?'block':'none'
      }
-
-          
-        
-        
+ 
     $("button[name='btn_delete']").live("click", function () {
         var this_id = $(this).attr('id');
         $.ajax({
@@ -40,7 +37,7 @@ document.write("2222");
             url: '/edit_catalog_handler/',
             dataType : "json",
             data: {command: "delete_label", label_id: this_id},
-
+            //success: function(){},
         });
     });
    
@@ -57,18 +54,21 @@ document.write("2222");
     <li name="${label1.id}">
         <input id="${ label1.id }" size="100" maxlength="100" value="${ label1.name_of_label }" readonly>
         % if (not label1.protected_for_edit):
-              <button type="button" class="btn btn-default btn-xs" onClick="EditClick(${ label1.id })"><i class="glyphicon glyphicon-pencil"></i></button> 
+              <button type="button" class="btn btn-default btn-xs" id="${ label1.id }" name="btn_edit" onClick="EditClick(${ label1.id })"><i class="glyphicon glyphicon-pencil"></i></button> 
         <script>
         $(document).ready(function(){
             $("#${ label1.id }").keypress(function(e){
             if(e.keyCode==13){
 	            var ahref=document.getElementById('${ label1.id }');
-                ahref.readOnly=true; 
-                $.ajax({
-                       type:'POST',
-                       url: "/edit_catalog_handler/",
-                       data: {command:}
-               });
+                ahref.readOnly=true;
+                var this_id = "${ label1.id }";
+                //$.ajax({
+                //type:'POST',
+                //url: '/edit_catalog_handler/',
+                //dataType : "json",
+                //data: {command: "edit_label", label_id: this_id, name_input: $("input[id='${ label1.id }']").val()},
+                //success: function(){},
+      //  });
 	        }
 	        });
 	     });
@@ -107,6 +107,8 @@ document.write("2222");
     newItemButEdit.setAttribute("type", "button");
     newItemButEdit.setAttribute("class", "btn btn-default btn-xs");
     newItemButEdit.setAttribute("onClick", "EditClick(${ label_into.id })");
+    newItemButEdit.setAttribute("id", "${ label_into.id }");
+    newItemButEdit.setAttribute("name", "btn_edit");
     var newItemIconEdit = document.createElement("i");  
     newItemIconEdit.setAttribute("class", "glyphicon glyphicon-pencil");  
     newItemButEdit.appendChild(newItemIconEdit); 
@@ -116,7 +118,15 @@ document.write("2222");
     if(e.keyCode==13){
 	var ahref=document.getElementById('${ label_into.id }');
     ahref.readOnly=true; 
-        ///////////////////////////////////////////////////////////////////////////////////
+    ///!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+       // var this_id = "${  }";
+    //$.ajax({
+    //type:'POST',
+   // url: '/edit_catalog_handler/',
+   // dataType : "json",
+   // data: {command: "edit_label", label_id: this_id, name_input: $("input[id='${  }']").val()},
+    //success: function(){},
+        //});
 	     	   }
 	     	 });
 	     });
@@ -135,8 +145,6 @@ document.write("2222");
     newItemButDelete.appendChild(newItemIconDelete);
     newItem.appendChild(newItemButDelete);                     
         </script>
-
-        
         % endif
         % if (not label_into.protected_for_add_course):
         <script>
